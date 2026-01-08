@@ -1,0 +1,29 @@
+Demo.java
+Demo2.java
+ExceptionClass.java
+JAVA_DSA.iml
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+/out
