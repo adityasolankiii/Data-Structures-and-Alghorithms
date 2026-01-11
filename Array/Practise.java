@@ -33,7 +33,7 @@ class Practise{
         return trappedWater;
     }
     public static void main(String[] args) {
-        int height[] = {1,5,3,4,9,3,5,7,6};
+        int height[] = {1,5,3,4,9,3,50,7,6};
         System.out.println(trappedRainWater(height));
     }
 }
