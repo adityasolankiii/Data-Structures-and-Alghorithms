@@ -54,16 +54,24 @@ public class MaxSubarraySum {
     public static void kadane(int[] arr){
         int MAX_SUM  = Integer.MIN_VALUE;
         int CURR_SUM = 0;
+        int MAX_NEGATIVE_VALUE = Integer.MIN_VALUE;
 
-        for (int i = 0; i < arr.length; i++) {
-            if(CURR_SUM>=0) CURR_SUM+=arr[i];
+        for (int el : arr) {
+            CURR_SUM += el;
+            if (CURR_SUM < 0){
+                CURR_SUM = 0;
+                MAX_NEGATIVE_VALUE = Math.max(el, MAX_NEGATIVE_VALUE);
+            }
             MAX_SUM = Math.max(CURR_SUM, MAX_SUM);
         }
+
+        // if all elements are negative than MAX_SUM will be 0(Zero)
+        if(MAX_SUM==0) MAX_SUM = MAX_NEGATIVE_VALUE;
         System.out.println("Maximum sum of SubArray is "+MAX_SUM);
     }
 
     public static void main(String[] args) {
-        int[] arr = {3,5,1,-6,8};
+        int[] arr = {3,-5,-1,-6,-8};
 //        maxSum(arr);
 //        prefixSum(arr);
         kadane(arr);
