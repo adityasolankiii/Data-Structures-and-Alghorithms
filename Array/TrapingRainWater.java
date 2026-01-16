@@ -35,7 +35,7 @@ class TrappingRainWater{
     }
 
     public static void main(String[] args) {
-        int height[]={1,5,3,4,9,3,5,7,6};
+        int[] height ={1,5,3,4,9,3,5,7,6};
         System.out.print(trappedRainWater(height));
     }
 }
