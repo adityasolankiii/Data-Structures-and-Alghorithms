@@ -1,3 +1,5 @@
+package MultiThreading;
+
 class MyThreadRunnable1 implements Runnable {
 
     @Override

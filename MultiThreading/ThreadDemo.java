@@ -1,3 +1,5 @@
+package MultiThreading;
+
 class MyThread1 extends Thread {
     
     @Override

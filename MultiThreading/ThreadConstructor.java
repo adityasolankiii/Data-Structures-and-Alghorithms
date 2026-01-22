@@ -1,3 +1,4 @@
+package MultiThreading;
 
 class MyThr extends Thread {
     public MyThr(String name) {

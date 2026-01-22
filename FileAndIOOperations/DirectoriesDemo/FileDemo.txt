@@ -1,0 +1,2 @@
+Hello from File writer
+This is file handling demo using JAVA
