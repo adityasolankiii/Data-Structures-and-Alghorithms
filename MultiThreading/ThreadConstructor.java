@@ -20,10 +20,10 @@ public class ThreadConstructor {
         t1.start();
         t2.start();
 
-        System.out.println("The ID of the Thread is : " + t1.getId());
+        System.out.println("The ID of the Thread is : " + t1.threadId());
         System.out.println("The Name of the Thread is : " + t1.getName());
         
-        System.out.println("The ID of the Thread is : " + t2.getId());
+        System.out.println("The ID of the Thread is : " + t2.threadId());
         System.out.println("The Name of the Thread is : " + t2.getName());
     }
 }
