@@ -1,6 +1,6 @@
 package DivideAndConquer;
 
-public class DevidenConquer {
+public class DividenConquer {
 
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
