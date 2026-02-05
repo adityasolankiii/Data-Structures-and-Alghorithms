@@ -71,7 +71,7 @@ public class KeypadCombinations {
     public static void main(String[] args) {
         letterCombination("23");
 
-
+        System.out.println();
         System.out.println(letterCombinations("23"));
         System.out.println(letterCombinations("2"));
         System.out.println(letterCombinations(""));
