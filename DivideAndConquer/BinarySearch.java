@@ -2,8 +2,8 @@ package DivideAndConquer;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] arr = {1,3,5,6,7,9,10,23,35,56,78};
-        int target = 35;
+        int[] arr = {7,9,10,23,35,56,78,1,3,5,6};
+        int target = 5;
         int resultIndex = BinarySearch.search(arr,0,arr.length-1,target);
 
         if (resultIndex != -1) {
