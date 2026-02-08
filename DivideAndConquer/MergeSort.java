@@ -1,19 +1,19 @@
 package DivideAndConquer;
 
-public class DividenConquer {
+public class MergeSort {
 
     public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int el : arr) {
+            System.out.print(el + " ");
         }
         System.out.println();
     }
 
-    public static void mergeSort(int arr[], int si, int ei) {
+    public static void mergeSort(int[] arr, int si, int ei) {
         if (si >= ei) {
             return;
         }
-        int mid = (si + ei) / 2;
+        int mid = si + (ei - si)/2;  // (si + ei) / 2;
         mergeSort(arr, si, mid);
         mergeSort(arr, mid + 1, ei);
         merge(arr, si, mid, ei);
