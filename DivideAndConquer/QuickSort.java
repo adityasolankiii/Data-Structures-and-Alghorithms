@@ -11,12 +11,12 @@ public class QuickSort {
 
     private static void quickSort(int[] arr, int si, int ei) {
         //base case
-        if(si<=ei){
+        if(si>=ei){
             return;
         }
         //recursion
         int partitionIdx = partition(arr, si, ei);
-        quickSort(arr, si, partitionIdx+1);
+        quickSort(arr, si, partitionIdx-1);
         quickSort(arr, partitionIdx+1, ei);
     }
 
