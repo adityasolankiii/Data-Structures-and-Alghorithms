@@ -1,3 +1,5 @@
+package Recursion;
+
 public class Basic {
     //Print sum of first n natural number
     public static int calSum(int n) {
