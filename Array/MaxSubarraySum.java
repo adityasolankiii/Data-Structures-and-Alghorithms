@@ -55,9 +55,11 @@ public class MaxSubarraySum {
         int MAX_SUM  = Integer.MIN_VALUE;
         int CURR_SUM = 0;
         int MAX_NEGATIVE_VALUE = Integer.MIN_VALUE;
+        boolean isContainsZero = false;
 
         for (int el : arr) {
             CURR_SUM += el;
+            if(el == 0) isContainsZero = true;
             if (CURR_SUM < 0){
                 CURR_SUM = 0;
                 MAX_NEGATIVE_VALUE = Math.max(el, MAX_NEGATIVE_VALUE);
@@ -66,7 +68,7 @@ public class MaxSubarraySum {
         }
 
         // if all elements are negative than MAX_SUM will be 0(Zero)
-        if(MAX_SUM==0) MAX_SUM = MAX_NEGATIVE_VALUE;
+        if(!isContainsZero && MAX_SUM==0) MAX_SUM = MAX_NEGATIVE_VALUE;
         System.out.println("Maximum sum of SubArray is "+MAX_SUM);
     }
 
