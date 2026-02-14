@@ -16,10 +16,11 @@ public class SearchRecursive extends LinkedList{
             return -1;
         }
 
-        //recursion
         if(head.data == key){
             return 0;
         }
+
+        //recursion
         int idx = helper(head.next, key);
         if(idx == -1){
             return -1;
