@@ -12,6 +12,7 @@ public class LinkedList {
         }
     }
 
+    public int size;
     public static Node head;
     public static Node tail;
 
@@ -19,9 +20,10 @@ public class LinkedList {
      * This method will add data at first in linked list
      * @param data int
      */
-    private void addFirst(int data){
+    public void addFirst(int data){
         //Step-1 : create new node
         Node newNode = new Node(data);
+        size++;
         if(head == null){
             head = tail = newNode;
             return;
@@ -31,15 +33,17 @@ public class LinkedList {
 
         //Step-3 : head = newNode
         head = newNode;
+
     }
 
     /***
      * This method will add data at last in linked list
      * @param data int
      */
-    private void addLast(int data){
+    public void addLast(int data){
         //Step-1 : create new node
         Node newNode = new Node(data);
+        size++;
 
         if(head == null){
             head = tail = newNode;
@@ -51,14 +55,95 @@ public class LinkedList {
 
         //Step-3 : newNode = tail
         tail = newNode;
+
     }
 
-    private void print(){
+    /***
+     * this method will add data to particular index in linkedlist
+     * @param index int
+     * @param data int
+     */
+    public void add(int index, int data){
+
+        if(index == 0){
+            addFirst(data);
+            return;
+        }
+        size++;
+
+        Node newNode = new Node(data);
         Node temp = head;
-        while(temp != null){
-            System.out.print(temp.data+" ");
+
+        int i = 0;
+        while(i<index-1){
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+    }
+
+    /***
+     * This method will remove first element from a LinkedList
+     */
+    public int removeFirst(){
+
+        if(head == null){
+            System.out.println("Linked List is Empty!");
+            return Integer.MIN_VALUE;
+        } else if(head == tail){
+            int element = head.data;
+            head = tail = null;
+            size = 0;
+            return element;
+        }
+
+        size--;
+        int element = head.data;
+        head = head.next;
+        return element;
+    }
+
+    /***
+     * This method will remove last element from a LinkedList
+     */
+    public int removeLast(){
+
+        if(head == null){
+            System.out.println("Linked List is Empty!");
+            return Integer.MIN_VALUE;
+        } else if(head == tail){
+            int element = head.data;
+            head = tail = null;
+            size = 0;
+            return element;
+        }
+
+        size--;
+        int element = tail.data;
+
+        Node temp = head;
+        while (temp.next != tail){
             temp = temp.next;
         }
+
+        temp.next = null;
+        tail = temp;
+
+        return element;
+    }
+
+    /***
+     * This method will print LinkedList
+     */
+    public void print(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data+"->");
+            temp = temp.next;
+        }
+        System.out.println("Null");
     }
 
     public static void main(String[] args) {
@@ -67,9 +152,26 @@ public class LinkedList {
         ll.addFirst(2);
         ll.addFirst(1);
         ll.addLast(3);
-        ll.addLast(4);
+//        ll.addLast(4);
+//        ll.add(2,5);
 
 
         ll.print();
+        System.out.println("Size : " + ll.size);
+
+        System.out.println("==============");
+        int first = ll.removeFirst();
+
+        ll.print();
+        System.out.println("First Element : "+first);
+        System.out.println("Size : " + ll.size);
+
+        System.out.println("==============");
+
+        int last = ll.removeLast();
+
+        ll.print();
+        System.out.println("Last Element : "+last);
+        System.out.println("Size : " + ll.size);
     }
 }
