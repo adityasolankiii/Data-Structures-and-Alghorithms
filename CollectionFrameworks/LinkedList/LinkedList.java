@@ -149,7 +149,7 @@ public class LinkedList {
      * @param key the element to be searched in the list
      * @return the index of the key if found, otherwise -1
      */
-    public int search(int key){
+    public int itrSearch(int key){
         int index = 0;
         if(head == null) return -1;
         Node temp = head;
@@ -203,6 +203,6 @@ public class LinkedList {
         System.out.println("Size : " + ll.size);
 
         System.out.println("=======Search Element=======");
-        System.out.println(ll.search(2));
+        System.out.println(ll.itrSearch(2));
     }
 }
