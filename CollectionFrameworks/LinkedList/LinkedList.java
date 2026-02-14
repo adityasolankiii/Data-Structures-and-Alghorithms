@@ -13,8 +13,8 @@ public class LinkedList {
     }
 
     public int size;
-    public static Node head;
-    public static Node tail;
+    public Node head;
+    public Node tail;
 
     /***
      * This method will add data at first in linked list
@@ -64,15 +64,24 @@ public class LinkedList {
      * @param data int
      */
     public void add(int index, int data){
+        if(index < 0 || index > size){
+            System.out.println("Invalid Index");
+            return;
+        }
 
         if(index == 0){
             addFirst(data);
             return;
         }
-        size++;
+
+        if(index == size){
+            addLast(data);
+            return;
+        }
 
         Node newNode = new Node(data);
         Node temp = head;
+        size++;
 
         int i = 0;
         while(i<index-1){
@@ -99,9 +108,9 @@ public class LinkedList {
             return element;
         }
 
-        size--;
         int element = head.data;
         head = head.next;
+        size--;
         return element;
     }
 
@@ -120,10 +129,10 @@ public class LinkedList {
             return element;
         }
 
-        size--;
         int element = tail.data;
 
         Node temp = head;
+        size--;
         while (temp.next != tail){
             temp = temp.next;
         }
@@ -132,6 +141,25 @@ public class LinkedList {
         tail = temp;
 
         return element;
+    }
+
+    /**
+     * Searches for the specified key in the LinkedList.
+     *
+     * @param key the element to be searched in the list
+     * @return the index of the key if found, otherwise -1
+     */
+    public int search(int key){
+        int index = 0;
+        if(head == null) return -1;
+        Node temp = head;
+        while(temp != null){
+            if(key == temp.data) return index;
+            temp = temp.next;
+            index++;
+        }
+
+        return -1;
     }
 
     /***
@@ -152,26 +180,29 @@ public class LinkedList {
         ll.addFirst(2);
         ll.addFirst(1);
         ll.addLast(3);
-//        ll.addLast(4);
-//        ll.add(2,5);
+        ll.addLast(4);
+        ll.add(2,5);
 
 
         ll.print();
         System.out.println("Size : " + ll.size);
 
-        System.out.println("==============");
+        System.out.println("=======First Element=======");
         int first = ll.removeFirst();
 
         ll.print();
         System.out.println("First Element : "+first);
         System.out.println("Size : " + ll.size);
 
-        System.out.println("==============");
+        System.out.println("=======Last Element=======");
 
         int last = ll.removeLast();
 
         ll.print();
         System.out.println("Last Element : "+last);
         System.out.println("Size : " + ll.size);
+
+        System.out.println("=======Search Element=======");
+        System.out.println(ll.search(2));
     }
 }
