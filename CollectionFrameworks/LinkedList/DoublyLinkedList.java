@@ -101,6 +101,26 @@ public class DoublyLinkedList {
     }
 
     /***
+     * This method will reverse the linked list
+     */
+    public void reverse(){
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+
+            prev = curr;
+            curr = next;
+        }
+
+        head = prev;
+    }
+
+    /***
      * This method will print LinkedList
      */
     public void print(){
@@ -125,6 +145,11 @@ public class DoublyLinkedList {
 
 //        ll.removeFirst();
         ll.removeLast();
+        ll.print();
+        System.out.println("Tail "+ll.tail.data);
+
+        System.out.println("Reverse");
+        ll.reverse();
         ll.print();
         System.out.println("Tail "+ll.tail.data);
     }
