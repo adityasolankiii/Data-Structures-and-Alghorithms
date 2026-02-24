@@ -28,7 +28,7 @@ public class SudokuSolver {
 
     public static boolean solve(int[][] sudoku, int row, int col){
        //base case
-        if(row == 8 && col == 8){
+        if(row == 9){
             return true;
         }
 
