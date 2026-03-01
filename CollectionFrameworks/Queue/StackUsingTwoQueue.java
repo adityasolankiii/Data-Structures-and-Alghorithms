@@ -9,6 +9,7 @@ public class StackUsingTwoQueue {
         static Queue<Integer> q1 = new LinkedList<>();
         static Queue<Integer> q2 = new LinkedList<>();
 
+        /*
         public static boolean isEmpty(){
             return q1.isEmpty() && q2.isEmpty();
         }
@@ -67,7 +68,36 @@ public class StackUsingTwoQueue {
 
             return last;
         }
+        */
 
+        public static void push(int x) {
+            /*q2.add(x);
+            while(!q1.isEmpty()) {
+                q2.add(q1.remove());
+            }
+
+            Queue<Integer> temp = q1;
+            q1 = q2;
+            q2 = temp;*/
+
+            q1.add(x);
+
+            for(int i=0;i<q1.size()-1;i++){
+                q1.add(q1.remove());
+            }
+        }
+
+        public static int pop() {
+            return q1.remove();
+        }
+
+        public static int peek() {
+            return q1.peek();
+        }
+
+        public static boolean isEmpty() {
+            return q1.isEmpty();
+        }
     }
 
     public static void main(String[] args) {

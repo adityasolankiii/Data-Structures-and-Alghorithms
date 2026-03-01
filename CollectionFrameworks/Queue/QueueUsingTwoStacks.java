@@ -7,6 +7,7 @@ public class QueueUsingTwoStacks {
         static Stack<Integer> stack1 = new Stack<>();
         static Stack<Integer> stack2 = new Stack<>();
 
+        /*
         public static boolean isEmpty(){
             return stack1.isEmpty();
         }
@@ -30,6 +31,34 @@ public class QueueUsingTwoStacks {
         public  static int pop(){
             return stack1.pop();
         }
+
+        */
+        public static void add(int x) {
+            stack1.push(x);
+        }
+
+        public static int pop() {
+            transfer();
+            return stack2.pop();
+        }
+
+        public static int peek() {
+            transfer();
+            return stack2.peek();
+        }
+
+        public static boolean isEmpty() {
+            return stack1.isEmpty() && stack2.isEmpty();
+        }
+
+        private static void transfer() {
+            if (stack2.isEmpty()) {
+                while (!stack1.isEmpty()) {
+                    stack2.push(stack1.pop());
+                }
+            }
+        }
+
     }
 
     public static void main(String[] args) {
@@ -40,5 +69,6 @@ public class QueueUsingTwoStacks {
         System.out.println(Queue.peek());
         System.out.println(Queue.pop());
         System.out.println(Queue.peek());
+        System.out.println(Queue.isEmpty());
     }
 }
