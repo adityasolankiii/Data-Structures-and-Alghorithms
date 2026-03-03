@@ -38,14 +38,12 @@ public class MaxSubarraySum {
         }
 
         for (int i = 0; i < arr.length; i++) {
-            int CURR_SUM = 0;
             int start = i;
             for (int j = i; j < arr.length; j++) {
                 int end  = j;
-                CURR_SUM = start==0 ? prefix[end] : prefix[end] - prefix[start-1];
+                int CURR_SUM = start == 0 ? prefix[end] : prefix[end] - prefix[start-1];
+                MAX_SUM = Math.max(MAX_SUM, CURR_SUM);
             }
-
-            if (CURR_SUM>MAX_SUM) MAX_SUM = CURR_SUM;
         }
         System.out.println("Maximum sum of SubArray is "+MAX_SUM);
 
