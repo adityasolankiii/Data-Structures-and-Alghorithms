@@ -21,19 +21,18 @@ public class ActivitySelection {
 
         //1st activity
         maxAct = 1;
-        ans.add(0);
+        ans.add(activities[0][0]);
+        int lastEnd = activities[0][2];
 
-        int lastEnd = end[0];
-
-        for (int i = 1; i < end.length; i++) {
-            //check overlap
-            if(start[i] >= lastEnd) {
+        for(int i = 1; i < activities.length; i++){
+            if(activities[i][1] >= lastEnd){
                 maxAct++;
-                ans.add(i);
-                lastEnd = end[i];
+                ans.add(activities[i][0]);
+                lastEnd = activities[i][2];
             }
         }
 
-        System.out.println(maxAct);
+        System.out.println("Maximum Activities = " + maxAct);
+        System.out.println("Activities Selected = " + ans);
     }
 }
