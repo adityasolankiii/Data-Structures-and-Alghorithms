@@ -1,5 +1,8 @@
 package BinaryTrees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node {
     int data;
     Node left;
@@ -27,6 +30,15 @@ class BinaryTree {
         return newNode;
     }
 
+    /***
+     * Pre-Order Traversal
+     * <ul>
+     *     <li>left</li>
+     *     <li>root</li>
+     *     <li>right</li>
+     * </ul>
+     * @param root Node
+     */
     public void preOrderTraversal(Node root) { // O(n)
         //base case
         if(root == null) {
@@ -39,6 +51,16 @@ class BinaryTree {
         preOrderTraversal(root.right);
     }
 
+
+    /***
+     * In-Order Traversal
+     * <ul>
+     *     <li>left</li>
+     *     <li>root</li>
+     *     <li>right</li>
+     * </ul>
+     * @param root Node
+     */
     public void inOrderTraversal(Node root) {
         //base case
         if(root == null) {
@@ -51,6 +73,17 @@ class BinaryTree {
         inOrderTraversal(root.right);
     }
 
+
+
+    /***
+     * Post-Order Traversal
+     * <ul>
+     *     <li>left</li>
+     *     <li>right</li>
+     *     <li>root</li>
+     * </ul>
+     * @param root Node
+     */
     public void postOrderTraversal(Node root) {
         //base case
         if(root == null) {
@@ -61,6 +94,42 @@ class BinaryTree {
         postOrderTraversal(root.right);
         System.out.print(root.data+" ");
     }
+
+
+    /***
+     * Level-Order Traversal
+     * <p>Iterative</p>
+     */
+    public void levelOrderTraversal(Node root) {
+        if(root == null) return;
+
+        //Queue
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+
+        while(!q.isEmpty()) {
+            Node currNode = q.remove();
+            if (currNode == null) {
+                System.out.println();
+                if(q.isEmpty()) {
+                    break;
+                } else {
+                    q.add(null);
+                }
+            } else {
+                System.out.print(currNode.data+" ");
+                if(currNode.left != null) {
+                    q.add(currNode.left);
+                }
+
+                if(currNode.right != null) {
+                    q.add(currNode.right);
+                }
+            }
+        }
+    }
+
 }
 
 public class BuildTreePreOrder {
@@ -76,5 +145,7 @@ public class BuildTreePreOrder {
         tree.inOrderTraversal(root);
         System.out.println("\n\nPost-Order Traversal");
         tree.postOrderTraversal(root);
+        System.out.println("\n\nLevel-Order Traversal");
+        tree.levelOrderTraversal(root);
     }
 }
