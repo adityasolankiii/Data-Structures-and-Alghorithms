@@ -38,6 +38,18 @@ class BinaryTree {
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
+
+    public void inOrderTraversal(Node root) {
+        //base case
+        if(root == null) {
+            return;
+        }
+
+        //recursion
+        inOrderTraversal(root.left);
+        System.out.print(root.data+" ");
+        inOrderTraversal(root.right);
+    }
 }
 
 public class BuildTreePreOrder {
@@ -48,5 +60,7 @@ public class BuildTreePreOrder {
         System.out.println(root.data);
 
         tree.preOrderTraversal(root);
+        System.out.println();
+        tree.inOrderTraversal(root);
     }
 }
