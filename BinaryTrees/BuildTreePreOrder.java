@@ -50,6 +50,17 @@ class BinaryTree {
         System.out.print(root.data+" ");
         inOrderTraversal(root.right);
     }
+
+    public void postOrderTraversal(Node root) {
+        //base case
+        if(root == null) {
+            return;
+        }
+
+        postOrderTraversal(root.left);
+        postOrderTraversal(root.right);
+        System.out.print(root.data+" ");
+    }
 }
 
 public class BuildTreePreOrder {
@@ -57,10 +68,13 @@ public class BuildTreePreOrder {
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        System.out.println(root.data);
+        //System.out.println(root.data);
 
+        System.out.println("Pre-Order Traversal");
         tree.preOrderTraversal(root);
-        System.out.println();
+        System.out.println("\n\nIn-Order Traversal");
         tree.inOrderTraversal(root);
+        System.out.println("\n\nPost-Order Traversal");
+        tree.postOrderTraversal(root);
     }
 }
