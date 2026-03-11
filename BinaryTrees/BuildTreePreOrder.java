@@ -130,6 +130,24 @@ class BinaryTree {
         }
     }
 
+    /***
+     * Sum of Nodes
+     * @param root Node
+     * @param sum Node
+     * @return total sum of nodes
+     */
+    public int sum(Node root, int sum) {
+        //base case
+        if(root == null){
+            return 0;
+        }
+
+        //recursion
+        int leftSum = sum(root.left, sum);
+        int rightSum = sum(root.right, sum);
+
+        return root.data+leftSum+rightSum;
+    }
 }
 
 public class BuildTreePreOrder {
@@ -147,5 +165,7 @@ public class BuildTreePreOrder {
         tree.postOrderTraversal(root);
         System.out.println("\n\nLevel-Order Traversal");
         tree.levelOrderTraversal(root);
+        System.out.println("\n\nSum of Nodes");
+        System.out.println(tree.sum(root,0));
     }
 }
