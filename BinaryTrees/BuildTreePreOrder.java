@@ -133,23 +133,26 @@ class BinaryTree {
     /***
      * Sum of Nodes
      * @param root Node
-     * @param sum Node
      * @return total sum of nodes
      */
-    public int sum(Node root, int sum) {
+    public int sum(Node root) {
         //base case
         if(root == null){
             return 0;
         }
 
         //recursion
-        int leftSum = sum(root.left, sum);
-        int rightSum = sum(root.right, sum);
+        int leftSum = sum(root.left);
+        int rightSum = sum(root.right);
 
         return root.data+leftSum+rightSum;
     }
 
-
+    /***
+     * this method finds the height of tree
+     * @param root Node
+     * @return height of tree
+     */
     public int height(Node root) {
         //base case
         if(root == null) {
@@ -161,6 +164,23 @@ class BinaryTree {
         int rh = height(root.right);
 
         return Math.max(lh,rh) + 1;
+    }
+
+
+    /***
+     * this method counts the total node in tree
+     * @param root Node
+     * @return count of nodes
+     */
+    public int count(Node root) {
+        if(root == null) {
+            return 0;
+        }
+
+        int lc = count(root.left);
+        int rc = count(root.right);
+
+        return 1+lc+rc;
     }
 }
 
@@ -180,8 +200,10 @@ public class BuildTreePreOrder {
         System.out.println("\n\nLevel-Order Traversal");
         tree.levelOrderTraversal(root);
         System.out.println("\n\nSum of Nodes");
-        System.out.println(tree.sum(root,0));
+        System.out.println(tree.sum(root));
         System.out.println("\n\nHeight of tree");
         System.out.println(tree.height(root));
+        System.out.println("\n\nCount of Nodes");
+        System.out.println(tree.count(root));
     }
 }
