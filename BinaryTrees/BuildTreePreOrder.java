@@ -148,6 +148,20 @@ class BinaryTree {
 
         return root.data+leftSum+rightSum;
     }
+
+
+    public int height(Node root) {
+        //base case
+        if(root == null) {
+            return 0;
+        }
+
+        //recursion
+        int lh = height(root.left);
+        int rh = height(root.right);
+
+        return Math.max(lh,rh) + 1;
+    }
 }
 
 public class BuildTreePreOrder {
@@ -167,5 +181,7 @@ public class BuildTreePreOrder {
         tree.levelOrderTraversal(root);
         System.out.println("\n\nSum of Nodes");
         System.out.println(tree.sum(root,0));
+        System.out.println("\n\nHeight of tree");
+        System.out.println(tree.height(root));
     }
 }
