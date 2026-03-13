@@ -22,6 +22,10 @@ public class SubTreeOfAnotherTree extends BinaryTree{
 
     public static boolean isSubtree(Node root, Node subRoot) {
         //base case
+        if(subRoot == null) {
+            return true;
+        }
+
         if(root == null) {
             return false;
         }
