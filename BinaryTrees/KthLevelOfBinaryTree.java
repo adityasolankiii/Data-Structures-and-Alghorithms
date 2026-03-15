@@ -4,6 +4,8 @@ public class KthLevelOfBinaryTree extends BinaryTree{
 
     public static void kthLevel(Node root, int level, int k) {
         //base case
+        if (root == null) return;
+
         if(level == k) {
             System.out.print(root.data+ " ");
             return;
