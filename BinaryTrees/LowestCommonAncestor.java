@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class LowestCommonAncestor {
 
+    // Approach - 1
     private static boolean getPath(Node root, int n, ArrayList<Node> path) {
         if(root == null) {
             return false;
@@ -41,6 +42,29 @@ public class LowestCommonAncestor {
         return path1.get(i-1);
     }
 
+
+    // Approach - 2
+    public static Node lca2(Node root, int n1, int n2) {
+
+        if(root == null || root.data == n1 || root.data == n2) {
+            return root;
+        }
+
+        Node leftLca = lca2(root.left, n1, n2);
+        Node rightLca = lca2(root.right, n1, n2);
+
+        //leftLca = val && rightLca = null
+        if(rightLca == null) {
+            return leftLca;
+        }
+        //rightLca = val && leftLca = val
+        if(leftLca == null) {
+            return rightLca;
+        }
+
+        return root;
+    }
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -52,5 +76,6 @@ public class LowestCommonAncestor {
         root.right.right = new Node(7);
 
         System.out.println(lca1(root,4,7).data);
+        System.out.println(lca2(root,4,5).data);
     }
 }
