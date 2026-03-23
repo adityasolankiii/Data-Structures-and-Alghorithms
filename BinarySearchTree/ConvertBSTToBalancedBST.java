@@ -1,5 +1,4 @@
 package BinarySearchTree;
-
 import java.util.ArrayList;
 
 public class ConvertBSTToBalancedBST extends Traversal{
