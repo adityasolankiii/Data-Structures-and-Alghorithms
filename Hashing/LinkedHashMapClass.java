@@ -3,6 +3,9 @@ package Hashing;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+/***
+ * Keys are insertion ordered
+ */
 public class LinkedHashMapClass {
     public static void main(String[] args) {
         LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
