@@ -18,15 +18,15 @@ public class HashMapImplementation {
 
         private int n; // number of nodes
         private int N; // number of buckets
-        private LinkedList<Node>[] bucket;
+        private LinkedList<Node>[] buckets;
 
         @SuppressWarnings("unchecked")
         public HashMap() {
             this.N = 4;
-            this.bucket = new LinkedList[N];
+            this.buckets = new LinkedList[N];
 
             for (int i = 0; i < N; i++) {
-                bucket[i] = new LinkedList<>();
+                buckets[i] = new LinkedList<>();
             }
         }
 
@@ -38,7 +38,7 @@ public class HashMapImplementation {
 
         // ---------------- SEARCH IN LinkedList ----------------
         private int searchInLL(K key, int bi) {
-            LinkedList<Node> ll = bucket[bi];
+            LinkedList<Node> ll = buckets[bi];
             int di = 0;
 
             for (Node node : ll) {
@@ -56,10 +56,10 @@ public class HashMapImplementation {
             int di = searchInLL(key, bi);
 
             if (di != -1) {
-                Node node = bucket[bi].get(di);
+                Node node = buckets[bi].get(di);
                 node.value = value;
             } else {
-                bucket[bi].add(new Node(key, value));
+                buckets[bi].add(new Node(key, value));
                 n++;
             }
 
@@ -76,7 +76,7 @@ public class HashMapImplementation {
             int di = searchInLL(key, bi);
 
             if (di != -1) {
-                return bucket[bi].get(di).value;
+                return buckets[bi].get(di).value;
             }
             return null;
         }
@@ -95,7 +95,7 @@ public class HashMapImplementation {
             int di = searchInLL(key, bi);
 
             if (di != -1) {
-                Node node = bucket[bi].remove(di);
+                Node node = buckets[bi].remove(di);
                 n--;
                 return node.value;
             }
@@ -106,7 +106,7 @@ public class HashMapImplementation {
         public ArrayList<K> keySet() {
             ArrayList<K> keys = new ArrayList<>();
 
-            for (LinkedList<Node> ll : bucket) {
+            for (LinkedList<Node> ll : buckets) {
                 for (Node node : ll) {
                     keys.add(node.key);
                 }
@@ -122,13 +122,13 @@ public class HashMapImplementation {
         // ---------------- REHASH ----------------
         @SuppressWarnings("unchecked")
         private void rehash() {
-            LinkedList<Node>[] oldBucket = bucket;
+            LinkedList<Node>[] oldBucket = buckets;
 
-            bucket = new LinkedList[N * 2];
+            buckets = new LinkedList[N * 2];
             N = N * 2;
 
             for (int i = 0; i < N; i++) {
-                bucket[i] = new LinkedList<>();
+                buckets[i] = new LinkedList<>();
             }
 
             n = 0;
