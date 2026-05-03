@@ -7,5 +7,8 @@ public class TrieImplementation {
         for(String word : words) {
             Trie.insert(word);
         }
+
+        System.out.println(Trie.search("thee"));
+        System.out.println(Trie.search("thor"));
     }
 }
