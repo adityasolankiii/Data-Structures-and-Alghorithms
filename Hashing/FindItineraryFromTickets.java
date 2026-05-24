@@ -13,14 +13,14 @@ Output - "Mumbai" -> "Delhi" -> "Goa" -> "Chennai" -> "Bengaluru"
 public class FindItineraryFromTickets {
 
     public static String getStart(HashMap<String, String> map) {
-        HashMap<String, String> revMap = new HashMap<>();
+        /*HashMap<String, String> revMap = new HashMap<>();
 
         for (String key : map.keySet()) {
             revMap.put(map.get(key),key);
-        }
+        }*/
 
         for (String key : map.keySet()) {
-            if(!revMap.containsKey(key)){
+            if(!map.containsValue(key)){
                 return key;
             }
         }
