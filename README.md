@@ -11,16 +11,21 @@ More advanced topics and problems will be added gradually as the repository evol
 
 This repository currently covers topics such as:
 
+- **Core Java – OOP Concepts**
+- **Multithreading Concepts**
+- **General Java Practice Programs**
 - **Array Programs**
 - **Multi-Dimensional Arrays**
 - **Basic Sorting Algorithms**
-- **Collection Frameworks**
-- **Divide & Conquer (partial coverage)**
-- **Recursion**
 - **String Programs**
-- **Core Java – OOP Concepts**
-- **Multithreading Concepts**
-- **General Java Practice Programs (Progs)**
+- **Collection Framework - (ArrayList, LinkedList, Queue, Stack)**
+- **Divide & Conquer**
+- **Recursion**
+- **Backtracking**
+- **Greedy Algorithms**
+- **Heap / Priority Queue**
+- **Trie Data Structure**
+
 
 ---
 
@@ -28,12 +33,8 @@ This repository currently covers topics such as:
 
 Some topics are not included yet but will be added in the future:
 
-- Dynamic Programming
-- Greedy Algorithms
-- Backtracking (advanced)
-- Trie Data Structure
-- Heap / Priority Queue
 - Advanced Graph Algorithms
+- Dynamic Programming
 - More interview-level DSA practice problems
 
 ---
