@@ -52,4 +52,4 @@ Some topics are not included yet but will be added in the future:
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/adityasolankiii/Data-Structures-and-Alghorithms.git
