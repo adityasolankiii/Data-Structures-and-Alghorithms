@@ -485,7 +485,20 @@ Algorithms:
 10. Strongly connected components
 
 ---
+# Applications of Graphs
 
+1. Maps
+2. Social Networks (Snapchat, LinkedIn, Instagram, Facebook, Twitter)
+3. Delivery Network (Shortest Cycling Routes)
+4. Physics & Chemistry
+5. Routing Algorithms
+6. Machine Learning (Computation Graphs)
+7. Dependency Graphs
+8. Computer Vision
+9. Graph Databases (Neo4j, Nebula, etc.)
+10. Research
+
+---
 # Conclusion
 
 Graphs are one of the most important data structures in computer science.  
